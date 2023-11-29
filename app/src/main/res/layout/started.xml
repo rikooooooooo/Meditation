@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    >
+
+    <ImageView
+        android:id="@+id/welcome_img2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:src="@drawable/welcome_img2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.387" />
+
+    <TextView
+        android:id="@+id/started_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="44dp"
+        android:fontFamily="@font/bugatine"
+        android:text="@string/app_name"
+        android:textColor="@color/dark_grey"
+        android:textSize="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcome_img2"
+        app:layout_constraintStart_toStartOf="@+id/welcome_img2" />
+
+    <TextView
+        android:id="@+id/started_text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Hi User!\nWelcome to Meditation"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/welcome_img2"
+        app:layout_constraintStart_toStartOf="@+id/welcome_img2" />
+
+    <TextView
+        android:id="@+id/started_text3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserratmedium"
+        android:text="Explore the app, Find some peace of mind to prepare for meditation"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/welcome_img2"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_img2" />
+
+    <Button
+        android:id="@+id/started_button"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/box_shape3"
+        android:fontFamily="@font/montserratmedium"
+        android:text="@string/started_text"
+        android:textColor="@color/dark_grey"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/welcome_img2"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_img2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

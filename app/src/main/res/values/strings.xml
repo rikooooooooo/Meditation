@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Meditation</string>
+    <string name="username_text">  Username...</string>
+    <string name="password_text">  Password...</string>
+    <string name="started_text">Get Started</string>
+    <string name="Start">Start</string>
+    <string name="Stop">Stop</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis metus imperdiet, feugiat nisi vitae, accumsan leo.
+        Phasellus maximus eu dolor sed vestibulum. Nulla maximus rutrum augue, imperdiet blandit est convallis in. Vivamus nec rhoncus neque. Nulla
+        pharetra semper auctor. Ut posuere non enim eu euismod. Vestibulum sit amet est velit. Fusce eleifend augue blandit, posuere lectus in,
+        elementum est.Suspendisse consectetur iaculis purus, eu porttitor lectus sodales ac. Cras fermentum imperdiet nunc, eget sodales diam rutrum
+        id. Maecenas finibus vestibulum blandit. Mauris at massa at elit tempus dapibus. Ut commodo hendrerit ex at hendrerit. Duis laoreet nisl sit
+        amet lectus faucibus accumsan. Proin eu sollicitudin enim. Curabitur scelerisque arcu a faucibus viverra. Curabitur pharetra consectetur
+        . Curabitur sit amet rutrum libero, sed volutpat urna. Sed sed purus vitae sapien vestibulum rutrum id et est. Cras tincidunt,
+        nisl varius bibendum consequat, ex dui porttitor tellus, a dictum enim ipsum vel erat. Sed auctor, tortor ac vulputate auctor, lorem nisi
+        placerat tellus, eu imperdiet diam nibh at nunc. Etiam pellentesque, elit vel sollicitudin interdum, enim nulla hendrerit nulla, in facilisis
+        lacus  vel metus. Quisque facilisis ipsum et felis interdum, ut condimentum diam varius. In molestie ullamcorper sodales. In pellentesque,
+        velit sit amet blandit ultricies, metus mi suscipit nunc, nec convallis lectus dolor vel magna. Mauris sollicitudin augue sed magna rutrum
+        accumsan. Cras at tincidunt mi. Aenean sit amet nulla fringilla, dictum libero et, tempor nunc. Aliquam porttitor consectetur dignissim.
+        Fusce massa lorem, imperdiet sed iaculis quis, consectetur quis erat. Nulla eu lorem nec sem sollicitudin commodo et nec magna. Nulla congue
+        nulla et erat suscipit, at sodales enim vehicula. Vestibulum hendrerit dapibus mauris, in ultricies felis pulvinar in. Curabitur eget enim
+        ligula. Nam nec justo consequat, venenatis ante id, gravida arcu. Sed tempus turpis nec odio fringilla, in cursus dolor euismod. Class aptent
+        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris eu augue at sapien efficitur euismod in et tortor.
+        Vestibulum mattis, odio id efficitur sollicitudin, risus felis fermentum ante, vitae cursus erat libero dapibus neque. Etiam ultrices auctor
+        sodales. Fusce sit amet lectus pulvinar, imperdiet lectus fermentum, tristique nibh. Ut sit amet lacinia dui, elementum tristique odio. Proin
+        porta non massa id venenatis. Morbi non congue justo. Phasellus odio lorem, auctor vitae sem vel, vestibulum pellentesque sapien. Donec est
+        ligula, consectetur eu nunc eu, pharetra cursus tellus. Pellentesque et mollis est, tincidunt rhoncus nisi. Curabitur tincidunt, sem a
+        porttitor scelerisque, mauris justo luctus dolor, nec dapibus est arcu non nisi. Quisque a purus diam.</string>
+</resources>
