@@ -1,5 +1,7 @@
 package com.example.meditation
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        val storedUsername = getStoredUsername()
 
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when(menuItem.itemId){
@@ -49,6 +52,11 @@ class MainActivity : AppCompatActivity() {
 
     fun setSelectedBottomNavItem(itemId: Int) {
         bottomNavigationView.selectedItemId = itemId
+    }
+
+    private fun getStoredUsername(): String {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("Name", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("username", "") ?: ""
     }
 
 }

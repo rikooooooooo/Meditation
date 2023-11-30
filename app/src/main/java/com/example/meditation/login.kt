@@ -1,7 +1,10 @@
 package com.example.meditation
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -9,24 +12,20 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.meditation.model.SignInBody
-import com.example.meditation.retrofit.ApiInterface
-import com.example.meditation.retrofit.RetrofitInstance
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONException
 
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.io.DataOutputStream
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
-
-class login : AppCompatActivity(){
+class login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
+
         val imageView: ImageView = findViewById(R.id.welcome_img)
         val textLogin: TextView = findViewById(R.id.logintext)
         val textUsername: TextView = findViewById(R.id.tx_username)
@@ -38,59 +37,68 @@ class login : AppCompatActivity(){
 
         val loginButton: Button = findViewById(R.id.login_button)
         val signupButton: Button = findViewById(R.id.signup_button)
-
-
-
-        loginButton.setOnClickListener {
-            val username = usernameEditText.getText().toString()
-            val password = passwordEditText.getText().toString()
-            signin(username, password)
-        }
         signupButton.setOnClickListener {
             openNewPage2()
         }
+        loginButton.setOnClickListener {
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+            saveUsername(username)
+            val BASE_URL = "https://forprojectk.000webhostapp.com/api-login.php"
+            val url = "$BASE_URL?username=$username&password=$password"
 
-    }
-    private fun signin(username: String, password: String){
-        val retIn = RetrofitInstance.getRetrofitInstance().create(ApiInterface::class.java)
-        val signInInfo = SignInBody(username, password)
-        retIn.signin(signInInfo).enqueue(object : Callback<ResponseBody> {
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+            if (!(username.isEmpty() || password.isEmpty())) {
+
+                val requestQueue = Volley.newRequestQueue(applicationContext)
+
+                val stringRequest = StringRequest(
+                    Request.Method.GET,
+                    url,
+                    Response.Listener { response ->
+                        Log.d("Server Response", response)
+                        if (response == "Selamat Datang") {
+                            Toast.makeText(applicationContext, "Login Berhasil", Toast.LENGTH_SHORT)
+                                .show()
+                            startActivity(Intent(applicationContext, MainActivity::class.java))
+                        } else {
+                            Toast.makeText(applicationContext, "Login Gagal", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    },
+                    Response.ErrorListener { error ->
+                        Toast.makeText(applicationContext, error.toString(), Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                )
+                requestQueue.add(stringRequest)
+            } else {
                 Toast.makeText(
-                    this@login,
-                    t.message,
+                    applicationContext,
+                    "Password Atau Username Salah",
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                if (response.code() == 200) {
-                    Toast.makeText(this@login, "Login success!", Toast.LENGTH_SHORT).show()
-                    openNewPage()
-                } else {
-                    Toast.makeText(this@login, "Login failed!", Toast.LENGTH_SHORT).show()
-                }
-            }
-        })
-    }
-    private fun openNewPage2() {
-        val intent = Intent(this, register::class.java)
-        ContextCompat.startActivity(this, intent, null)
-    }
-
-    private fun openNewPage() {
-        // Add logic to navigate to the new page/activity
-        val intent = Intent(this, MainActivity::class.java)
-        ContextCompat.startActivity(this, intent, null)
-    }
-
-    private fun showToast(message: String) {
-        runOnUiThread {
-            Toast.makeText(this@login, message, Toast.LENGTH_SHORT).show()
         }
     }
-}
 
 
 
+        private fun openNewPage2() {
+            val intent = Intent(this, register::class.java)
+            startActivity(intent)
+        }
 
+        private fun saveUsername(username: String) {
+            val sharedPreferences: SharedPreferences = getSharedPreferences("Name", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("username", username)
+            editor.apply()
+        }
+
+        private fun showToast(message: String) {
+            runOnUiThread {
+                Toast.makeText(this@login, message, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 

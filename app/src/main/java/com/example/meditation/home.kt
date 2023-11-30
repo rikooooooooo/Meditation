@@ -1,6 +1,8 @@
 package com.example.meditation
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,6 +30,12 @@ public class home : Fragment() {
         val homeText5 = view?.findViewById<TextView>(R.id.home_text5)
         val meditationButton = view.findViewById<Button>(R.id.meditation_button)
 
+        val storedUsername = getStoredUsername()
+        if (homeText2 != null) {
+            homeText2.text = "Welcome, $storedUsername!"
+        }
+
+
         learnButton.setOnClickListener {
             replaceFragment(learn(), R.id.learn)
         }
@@ -49,6 +57,11 @@ public class home : Fragment() {
 
         // Update the selected item in the Bottom Navigation View
         (activity as MainActivity).setSelectedBottomNavItem(itemId)
+    }
+
+    private fun getStoredUsername(): String {
+        val sharedPreferences: SharedPreferences = requireActivity().getSharedPreferences("Name", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("username", "") ?: ""
     }
 
 }

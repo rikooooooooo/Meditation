@@ -39,6 +39,9 @@ class user : Fragment() {
         logoutButton.setOnClickListener {
             startActivity(Intent(requireContext(), login::class.java))
         }
+        editButton.setOnClickListener {
+            startActivity(Intent(requireContext(), user_edit::class.java))
+        }
 
         return view
     }

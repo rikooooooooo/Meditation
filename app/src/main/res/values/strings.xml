@@ -3,6 +3,7 @@
     <string name="username_text">  Username...</string>
     <string name="password_text">  Password...</string>
     <string name="started_text">Get Started</string>
+    <string name="welcome_text">Welcome</string>
     <string name="Start">Start</string>
     <string name="Stop">Stop</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis metus imperdiet, feugiat nisi vitae, accumsan leo.
