@@ -2,4 +2,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@color/blue" /> <!-- Set your desired color -->
     <corners android:radius="16dp" />
+    <size android:width="180dp"
+        android:height="180dp"></size>
 </shape>

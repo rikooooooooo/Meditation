@@ -29,7 +29,6 @@ class article : AppCompatActivity(){
         backButton.setOnClickListener {
             val intent = Intent(this, learn::class.java)
             startActivity(intent)
-            finish()
         }
 
         // Load content into views

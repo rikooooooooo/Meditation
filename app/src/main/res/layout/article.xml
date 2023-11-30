@@ -33,12 +33,13 @@
         android:id="@+id/article_text1"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserratbold"
         android:text="Meditate for Beginners"
         android:textColor="@color/dark_grey"
         android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/artikel_img" />
 
@@ -46,12 +47,13 @@
         android:id="@+id/article_text2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserratmedium"
         android:text="By Riko Firmansyah"
         android:textColor="@color/dark_grey"
         android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/article_text1" />
 

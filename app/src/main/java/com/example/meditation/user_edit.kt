@@ -19,7 +19,7 @@ import com.android.volley.toolbox.Volley
 class user_edit : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.user_edit)
+        setContentView(R.layout.edit)
 
         // Initialize views
         val textView2: TextView = findViewById(R.id.rg_email)
@@ -68,7 +68,8 @@ class user_edit : AppCompatActivity() {
 
                     override fun getParams(): Map<String, String> {
                         val params: MutableMap<String, String> = HashMap()
-                        params["username"] = username
+                        params["username"] = storedUsername
+                        params["newUsername"] = username
                         params["email"] = email
                         params["password"] = password
                         return params
@@ -84,7 +85,8 @@ class user_edit : AppCompatActivity() {
         }
 
         backButton.setOnClickListener {
-            startActivity(Intent(this, user::class.java))
+            val intent = Intent(this, user::class.java)
+            startActivity(intent)
         }
     }
     private fun getStoredUsername(): String {
