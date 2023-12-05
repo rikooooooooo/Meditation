@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="196dp"
         android:fontFamily="@font/montserratmedium"
-        android:text="Night Breeze"
+        android:text="Loading.."
         android:textAlignment="center"
         android:textColor="@color/orange"
         android:textSize="32dp"
@@ -72,19 +72,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_music" />
 
-    <ImageButton
-        android:id="@+id/back_button"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/oval_shape2"
-        android:src="@drawable/baseline_arrow_back_24"
-        android:fontFamily="@font/montserratmedium"
-        android:textColor="@color/black"
-        android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/back_button"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:background="@drawable/oval_shape2"-->
+<!--        android:src="@drawable/baseline_arrow_back_24"-->
+<!--        android:fontFamily="@font/montserratmedium"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="24dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <LinearLayout
         android:layout_width="300dp"
@@ -96,6 +96,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_music"
         >
+
+        <ImageButton
+            android:id="@+id/prev_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/oval_shape1"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/baseline_skip_previous_24" />
 
         <ImageButton
             android:id="@+id/rewind_btn"
@@ -118,6 +126,14 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/baseline_fast_forward_24"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/oval_shape1"/>
+
+        <ImageButton
+            android:id="@+id/next_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/baseline_skip_next_24"
             android:background="@drawable/oval_shape1"/>
 
     </LinearLayout>

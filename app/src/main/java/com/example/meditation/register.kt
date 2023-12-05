@@ -1,6 +1,8 @@
 package com.example.meditation
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -42,6 +44,7 @@ class register : AppCompatActivity() {
             val username = editText1.text.toString()
             val email = editText2.text.toString()
             val password = editText3.text.toString()
+            saveUsername(username)
             val BASE_URL = "https://forprojectk.000webhostapp.com/api-register.php"
             val currentTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date()
             )
@@ -84,5 +87,10 @@ class register : AppCompatActivity() {
             startActivity(Intent(this, login::class.java))
         }
     }
-
+    private fun saveUsername(username: String) {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("Name", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("username", username)
+        editor.apply()
+    }
     }
