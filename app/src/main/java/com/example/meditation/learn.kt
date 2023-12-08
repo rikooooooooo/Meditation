@@ -1,6 +1,5 @@
 package com.example.meditation
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
@@ -19,17 +20,18 @@ import com.google.android.material.button.MaterialButton
 import com.squareup.picasso.Picasso
 import org.json.JSONArray
 import org.json.JSONException
-
+import java.io.Serializable
 
 
 class learn : Fragment() {
 
-    private lateinit var imageView1: ImageView
-    private lateinit var articleTitle: TextView
-    private lateinit var articleAuthor: TextView
+//    private lateinit var imageView1: ImageView
+//    private lateinit var articleTitle: TextView
+//    private lateinit var articleAuthor: TextView
     private lateinit var learnText: TextView
     private lateinit var articles: List<Article>
     private lateinit var materialButton: MaterialButton
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,25 +41,26 @@ class learn : Fragment() {
         val view = inflater.inflate(R.layout.fragment_learn, container, false)
 
         // Initialize views
-        imageView1 = view.findViewById(R.id.artikel_img)
-        articleTitle = view.findViewById(R.id.learn_text2)
-        articleAuthor = view.findViewById(R.id.learn_text3)
+        recyclerView = view.findViewById(R.id.recycler_view)
+        // Initialize views
+//        imageView1 = view.findViewById(R.id.artikel_image)
+//        articleTitle = view.findViewById(R.id.artikel_title)
+//        articleAuthor = view.findViewById(R.id.artikel_author)
         learnText = view.findViewById(R.id.learn_text1)
+//
+//        val articleButton = view.findViewById<Button>(R.id.button_article)
 
-        val articleButton = view.findViewById<Button>(R.id.button_article)
-
-        articleButton.setOnClickListener {
-            openNewPage()
-        }
+//        articleButton.setOnClickListener {
+//            openNewPage()
+//        }
 
         // Fetch data from the API
         fetchDataFromAPI()
-
         return view
     }
 
     private fun openNewPage() {
-        startActivity(Intent(requireContext(), article::class.java))
+        startActivity(Intent(requireContext(), article_full::class.java))
     }
 
     private fun parseArticles(jsonArray: JSONArray): List<Article> {
@@ -66,28 +69,30 @@ class learn : Fragment() {
         for (i in 0 until jsonArray.length()) {
             val articleJson = jsonArray.getJSONObject(i)
             val article = Article(
+                articleJson.getString("id_artikel"),
                 articleJson.getString("judul_artikel"),
+                articleJson.getString("konten_artikel"),
                 articleJson.getString("sumber_artikel"),
                 articleJson.getString("gambar_artikel")
             )
             articles.add(article)
         }
-
         return articles
     }
-    private fun displayArticle(index: Int) {
-        if (index < articles.size) {
-            val article = articles[index]
 
-            // Update UI elements
-            articleTitle.text = article.judulArtikel
-            articleAuthor.text = article.sumberArtikel
+//    private fun displayArticle(index: Int) {
+//        if (index < articles.size) {
+//            val article = articles[index]
+//
+//            // Update UI elements
+//            articleTitle.text = article.judulArtikel
+//            articleAuthor.text = article.sumberArtikel
+//
+//            // Load image
+//            Picasso.get().load(article.gambarArtikel).into(imageView1)
+//        }
+//    }
 
-            // Load image using your preferred image loading library (e.g., Picasso, Glide)
-            // Example using Glide:
-            Picasso.get().load(article.gambarArtikel).into(imageView1)
-        }
-    }
     private fun fetchDataFromAPI() {
         val url = "https://forprojectk.000webhostapp.com/api-artikel.php"
 
@@ -101,9 +106,14 @@ class learn : Fragment() {
                     if (response.length() > 0) {
                         // Parse the JSON array into a list of articles
                         articles = parseArticles(response)
+                        println("Number of articles: ${articles.size}") // Print the number of articles
 
-                        // Display the first article
-                        displayArticle(0)
+                        // Create the adapter
+                        val adapter = ArticleAdapter(articles)
+
+                        // Set the adapter to the RecyclerView
+                        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                        recyclerView.adapter = adapter
                     }
                 } catch (e: JSONException) {
                     e.printStackTrace()
@@ -114,10 +124,9 @@ class learn : Fragment() {
                 error?.printStackTrace()
             }
         )
-
         // Add the request to the request queue
         Volley.newRequestQueue(requireContext()).add(jsonArrayRequest)
     }
 }
 
-data class Article(val judulArtikel: String, val sumberArtikel: String, val gambarArtikel: String)
+data class Article(val idArtikel : String, val judulArtikel: String, val kontenArtikel: String,val sumberArtikel: String, val gambarArtikel: String) : Serializable

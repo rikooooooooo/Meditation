@@ -6,9 +6,10 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.squareup.picasso.Picasso
 
 
-class article : AppCompatActivity(){
+class article_full : AppCompatActivity(){
     public lateinit var articleContent: String
     private lateinit var backButton: ImageButton
     private lateinit var artikelImg: ImageView
@@ -27,14 +28,22 @@ class article : AppCompatActivity(){
         textViewContent = findViewById(R.id.textViewContent)
 
         backButton.setOnClickListener {
-            val intent = Intent(this, learn::class.java)
-            startActivity(intent)
+            finish()
         }
 
+        val intent = intent
+        val article = intent.getSerializableExtra("article") as Article
+
+        // Now you can use the article object to populate your views
+        // For example:
+        articleText1.text = article.judulArtikel
+        articleText2.text = article.sumberArtikel
+        textViewContent.text = article.kontenArtikel
+        Picasso.get().load(article.gambarArtikel).into(artikelImg)
         // Load content into views
-        articleText1.text = "Meditate for Beginners"
-        articleText2.text = "By Riko Firmansyah"
-        textViewContent.text = getString(R.string.lorem)
+//        articleText1.text = "Meditate for Beginners"
+//        articleText2.text = "By Riko Firmansyah"
+//        textViewContent.text = getString(R.string.lorem)
 
     }
 }

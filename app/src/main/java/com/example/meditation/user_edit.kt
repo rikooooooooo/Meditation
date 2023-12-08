@@ -85,8 +85,7 @@ class user_edit : AppCompatActivity() {
         }
 
         backButton.setOnClickListener {
-            val intent = Intent(this, user::class.java)
-            startActivity(intent)
+            finish()
         }
     }
     private fun getStoredUsername(): String {

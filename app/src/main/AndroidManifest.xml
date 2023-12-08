@@ -32,7 +32,7 @@
         <activity android:name=".user" />
         <activity android:name=".learn" />
         <activity android:name=".home" />
-        <activity android:name=".article" />
+        <activity android:name=".article_full" />
         <activity android:name=".music" />
         <activity android:name=".user_edit" />
     </application>
