@@ -25,11 +25,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".user" />
         <activity android:name=".meditation" />
         <activity android:name=".register" />
         <activity android:name=".started" />
-        <activity android:name=".user" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".learn" />
         <activity android:name=".home" />
         <activity android:name=".article_full" />

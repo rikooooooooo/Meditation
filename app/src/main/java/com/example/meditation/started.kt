@@ -1,6 +1,8 @@
 package com.example.meditation
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -21,8 +23,20 @@ class started  : AppCompatActivity() {
         val startedButton = findViewById<Button>(R.id.started_button)
 
         // Add any logic or event listeners here as needed
+        val storedUsername = getStoredUsername()
+        val greeting = "Hi"
+        val message = "\n Welcome to Meditation"
+        if (storedUsername != null) {
+            startedText2.text = "$greeting, $storedUsername, $message"
+        } else {
+            startedText2.text = "$greeting, $message"
+        }
         startedButton.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+    private fun getStoredUsername(): String {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("Name", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("username", "") ?: ""
     }
 }

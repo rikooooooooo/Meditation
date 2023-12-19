@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:text="@string/lorem"
             android:fontFamily="@font/montserratmedium"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             />
     </ScrollView>
 

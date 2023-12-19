@@ -4,20 +4,24 @@
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/baseline_home_24"/>
+        android:fontFamily="@font/montserratsemibold"
+        android:icon="@drawable/icon_home"/>
 
     <item
         android:id="@+id/learn"
         android:title="Learn"
-        android:icon="@drawable/baseline_menu_book_24"/>
+        android:fontFamily="@font/montserratsemibold"
+        android:icon="@drawable/icon_learn"/>
 
     <item
         android:id="@+id/music"
         android:title="Music"
-        android:icon="@drawable/baseline_music_note_24"/>
+        android:fontFamily="@font/montserratsemibold"
+        android:icon="@drawable/icon_music"/>
 
     <item
         android:id="@+id/user"
         android:title="User"
-        android:icon="@drawable/baseline_manage_accounts_24"/>
+        android:fontFamily="@font/montserratsemibold"
+        android:icon="@drawable/icon_user"/>
 </menu>

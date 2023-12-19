@@ -8,12 +8,12 @@
     tools:context=".user">
 
     <ImageView
-        android:id="@+id/welcome_img"
+        android:id="@+id/user_img"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="64dp"
         android:background="@drawable/oval_shape2"
-        android:src="@drawable/user"
+        android:src="@drawable/user_image1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,7 +22,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        app:layout_constraintTop_toBottomOf="@id/welcome_img"
+        app:layout_constraintTop_toBottomOf="@id/user_img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
         <CalendarView

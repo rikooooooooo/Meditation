@@ -11,25 +11,28 @@
         android:id="@+id/registertext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
         android:fontFamily="@font/montserratbold"
         android:text="Create your Account"
-        android:textSize="24dp"
         android:textColor="@color/dark_grey"
+        android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.154" />
 
     <EditText
         android:id="@+id/rg_password_insert"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/box_shape2"
         android:hint="@string/password_text"
         android:inputType="textPassword"
+        app:layout_constraintWidth_percent="0.75"
+        app:layout_constraintHeight_percent="0.06"
         app:layout_constraintStart_toStartOf="@+id/rg_password"
         app:layout_constraintTop_toBottomOf="@+id/rg_password" />
 
@@ -43,18 +46,21 @@
         android:text="Password"
         android:textSize="20dp"
         android:textColor="@color/dark_grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rg_email" />
+        app:layout_constraintTop_toBottomOf="@+id/rg_email"
+        app:layout_constraintStart_toStartOf="@+id/registertext"
+        />
 
     <EditText
         android:id="@+id/rg_email_insert"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/box_shape2"
         android:hint="  Email..."
         android:inputType="text"
+        app:layout_constraintWidth_percent="0.75"
+        app:layout_constraintHeight_percent="0.06"
         app:layout_constraintStart_toStartOf="@+id/rg_email"
         app:layout_constraintTop_toBottomOf="@+id/rg_email" />
 
@@ -68,18 +74,20 @@
         android:text="Email"
         android:textColor="@color/dark_grey"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rg_username" />
+        app:layout_constraintTop_toBottomOf="@+id/rg_username"
+        app:layout_constraintStart_toStartOf="@+id/registertext"/>
 
     <EditText
         android:id="@+id/rg_username_insert"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/box_shape2"
         android:hint="@string/username_text"
         android:inputType="text"
+        app:layout_constraintWidth_percent="0.75"
+        app:layout_constraintHeight_percent="0.06"
         app:layout_constraintStart_toStartOf="@+id/rg_username"
         app:layout_constraintTop_toBottomOf="@+id/rg_username" />
 
@@ -100,13 +108,15 @@
 
     <Button
         android:id="@+id/register_button"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/box_shape"
         android:fontFamily="@font/montserratmedium"
         android:text="Register"
         android:textSize="16dp"
+        app:layout_constraintWidth_percent="0.75"
+        app:layout_constraintHeight_percent="0.06"
         app:layout_constraintStart_toStartOf="@+id/rg_password_insert"
         app:layout_constraintTop_toBottomOf="@+id/rg_password_insert" />
 

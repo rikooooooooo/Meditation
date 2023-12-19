@@ -30,7 +30,6 @@ class learn : Fragment() {
 //    private lateinit var articleAuthor: TextView
     private lateinit var learnText: TextView
     private lateinit var articles: List<Article>
-    private lateinit var materialButton: MaterialButton
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -95,7 +94,6 @@ class learn : Fragment() {
 
     private fun fetchDataFromAPI() {
         val url = "https://forprojectk.000webhostapp.com/api-artikel.php"
-
         val jsonArrayRequest = JsonArrayRequest(
             Request.Method.GET,
             url,
@@ -128,5 +126,4 @@ class learn : Fragment() {
         Volley.newRequestQueue(requireContext()).add(jsonArrayRequest)
     }
 }
-
 data class Article(val idArtikel : String, val judulArtikel: String, val kontenArtikel: String,val sumberArtikel: String, val gambarArtikel: String) : Serializable

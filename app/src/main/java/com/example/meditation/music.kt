@@ -173,6 +173,7 @@ class music : Fragment()  {
             val playButton = view.findViewById<ImageButton>(R.id.play_btn)
             playButton.setImageResource(R.drawable.baseline_play_arrow_24)
             localSeekBar?.progress = 0
+
         }
 
         elapsedTimer = object : CountDownTimer(Long.MAX_VALUE, 1000) {
@@ -234,6 +235,7 @@ class music : Fragment()  {
                 isMediaPlayerPrepared = true
 
                 mediaPlayer?.setVolume(0.8f, 0.8f)
+                mediaPlayer?.setLooping(true)
             }
         }
     }
